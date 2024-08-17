@@ -103,7 +103,7 @@ const Home = () => {
                     return (
                       <div className="flex justify-between items-center hover:bg-content2 relative py-2 px-2">
                         <span className="text-sm font-semibold">
-                          {format(item.dt, "HH:mm")}
+                          {format(item.dt * 1000, "HH:mm")}
                         </span>
                         <span className="flex items-center space-x-2 absolute left-1/2 -translate-x-1/2">
                           <img
@@ -117,7 +117,7 @@ const Home = () => {
                             alt=""
                           />
                           <span className="text-sm">
-                            {item.main.temp_min} - {item.main.temp_max} °C
+                            {item.main.temp_min?.toFixed(2)} - {item.main.temp_max?.toFixed(2)} °C
                           </span>
                         </span>
 
