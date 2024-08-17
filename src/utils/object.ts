@@ -1,0 +1,1 @@
+export const isNil = (x: any): x is undefined | null => x == null || typeof x === undefined
