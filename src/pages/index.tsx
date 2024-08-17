@@ -101,27 +101,30 @@ const Home = () => {
                       ?.join(". ");
 
                     return (
-                      <div className="flex justify-between items-center hover:bg-content2 relative py-2 px-2">
-                        <span className="text-sm font-semibold">
+                      <div className="flex justify-between items-start sm:items-center hover:bg-content2 relative py-2 px-2">
+                        <span className="text-sm font-semibold w-fit">
                           {format(item.dt * 1000, "HH:mm")}
                         </span>
-                        <span className="flex items-center space-x-2 absolute left-1/2 -translate-x-1/2">
-                          <img
-                            src={
-                              item?.weather?.[0]?.icon
-                                ? getWeatherIcon(item?.weather?.[0]?.icon)
-                                : "/icons/logo.png"
-                            }
-                            width={24}
-                            height={24}
-                            alt=""
-                          />
-                          <span className="text-sm">
-                            {item.main.temp_min?.toFixed(2)} - {item.main.temp_max?.toFixed(2)} °C
+                        <div className="flex flex-col w-full text-right">
+                          <span className="flex items-center justify-end sm:justify-center space-x-2 sm:absolute sm:left-1/2 sm:-translate-x-1/2">
+                            <img
+                              src={
+                                item?.weather?.[0]?.icon
+                                  ? getWeatherIcon(item?.weather?.[0]?.icon)
+                                  : "/icons/logo.png"
+                              }
+                              width={24}
+                              height={24}
+                              alt=""
+                            />
+                            <span className="text-sm">
+                              {item.main.temp_min?.toFixed(2)} -{" "}
+                              {item.main.temp_max?.toFixed(2)} °C
+                            </span>
                           </span>
-                        </span>
 
-                        <span className="text-sm">{desc}</span>
+                          <span className="text-sm">{desc}</span>
+                        </div>
                       </div>
                     );
                   })}
